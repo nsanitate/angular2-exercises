@@ -3,7 +3,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
 @Component({
   selector: 'status-selector',
   template: `<div>
-    <select #mySelect (change)="selected.emit(mySelect.value)">
+    <select #mySelect (change)="select.emit(mySelect.value)">
       <option *ngFor="#status of statuses">
         {{status}}
       </option>
@@ -11,10 +11,10 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
   </div>`
 })
 export class StatusSelector {
-  @Output selected = new EventEmitter();
+  @Output() select = new EventEmitter();
   statuses = ["started", "completed"];
 
   ngOnInit() {
-    this.selected.emit(this.statuses[0]);
+    this.select.emit(this.statuses[0]);
   }
 }

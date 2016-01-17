@@ -15,13 +15,13 @@ export class TodoService {
   }
 
   toggleTodo(todo) {
-    todo.toggle();
-
-    var i = this.todos.indexOf(todo);
+    const i = this.todos.indexOf(todo);
+    const status = todo.status == "started" ? "completed" : "started";
+    const toggleTodo = Object.assign({}, todo, {status});
 
     this.todos = [
       ...this.todos.slice(0, i),
-      todo,
+      toggleTodo,
       ...this.todos.slice(i + 1)
     ];
   }

@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Tour of Heroes - Tests</title>
+  <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+  <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+  <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+</head>
+<body>
+  <!-- 1. Load libraries -->
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      }
+    });
+    // 3. Import the spec file explicitly
+    Promise.all([
+          System.import('test/init-caps.pipe.spec.js')
+        ])
+        .then(window.onload)
+        .catch(console.error.bind(console));
+  </script>
+</body>
+</html>

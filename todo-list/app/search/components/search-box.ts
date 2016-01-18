@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from "angular2/core";
+import {Component, Output, EventEmitter, OnInit} from "angular2/core";
 
 @Component({
   selector: 'search-box',
@@ -6,7 +6,7 @@ import {Component, Output, EventEmitter} from "angular2/core";
     <input #myInput type="text" (input)="update.emit(myInput.value)">
   </div>`
 })
-export class SearchBox {
+export class SearchBox implements OnInit {
   @Output() update = new EventEmitter();
 
   ngOnInit() {

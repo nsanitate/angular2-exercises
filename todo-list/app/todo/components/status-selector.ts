@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "angular2/core";
+import {Component, Input, Output, EventEmitter, OnInit} from "angular2/core";
 
 @Component({
   selector: 'status-selector',
@@ -10,7 +10,7 @@ import {Component, Input, Output, EventEmitter} from "angular2/core";
     </select>
   </div>`
 })
-export class StatusSelector {
+export class StatusSelector implements OnInit{
   @Output() select = new EventEmitter();
   statuses = ["started", "completed"];
 
